@@ -10,6 +10,7 @@ export default function StarWarsCharacters() {
   const [next, setNext] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
+
   useEffect(() => {
     setIsLoading(true);
     const getCharacters = async () => {
@@ -44,12 +45,12 @@ export default function StarWarsCharacters() {
           timeout={3000} //3 secs
         />
       ) : (
-        <>
-          {characters.map(character => (
-            <div key={character.url}>{character.name}</div>
-          ))}
-        </>
-      )}
+          <>
+            {characters.map(character => (
+              <div key={character.url}>{character.name}</div>
+            ))}
+          </>
+        )}
       <div className="buttons">
         <button onClick={goToPrevious} disabled={!previous}>
           Previous
